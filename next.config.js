@@ -3,7 +3,7 @@ const nextConfig = {
   output: 'standalone',
   reactStrictMode: true,
   env: {
-    API_URL: http://dev.opensource-technology.com:8080/api/v1,
+    API_URL: process.env.API_URL,
   },
 }
 
