@@ -20,7 +20,7 @@ RUN \
 FROM base AS builder
 WORKDIR /app
 ARG API_URL
-ENV API_URL=http://dev.opensource-technology.com:8080/api/v1
+ENV API_URL=${API_URL}
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
@@ -39,7 +39,7 @@ FROM base AS runner
 WORKDIR /app
 
 ARG API_URL
-ENV API_URL=http://dev.opensource-technology.com:8080/api/v1
+ENV API_URL=${API_URL}
 ENV NODE_ENV production
 # Uncomment the following line in case you want to disable telemetry during runtime.
 # ENV NEXT_TELEMETRY_DISABLED 1
