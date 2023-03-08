@@ -1,9 +1,14 @@
-import { Form, Input, Col, Row } from 'antd'
+import { Form, Input } from 'antd'
 export default function UserForm({ onFinish = () => { }, children, textBtSubmit = '' }) {
+  const [form] = Form.useForm();
+  const handleOnFinish = (values) => {
+    onFinish(values) && form.resetFields();
+  }
   return (
     <Form
+      form={form}
       size="large"
-      onFinish={onFinish}
+      onFinish={handleOnFinish}
     >
       <Form.Item
         label="Username"
