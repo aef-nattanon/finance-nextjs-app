@@ -25,8 +25,8 @@ export default function UserForm({ onFinish = () => { }, children, textBtSubmit 
       >
         <Input.Password />
       </Form.Item>
-      <section class="authen-action">
-        <button class="btn btn--primary" type="submit">{textBtSubmit}</button>
+      <section className="authen-action">
+        <button className="btn btn--primary" type="submit">{textBtSubmit}</button>
         {children}
       </section>
     </Form >

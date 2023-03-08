@@ -1,6 +1,25 @@
 import moment from 'moment';
+import { ExclamationCircleFilled } from '@ant-design/icons';
+import { Modal } from 'antd';
 
-export default function TransitionRow({ type = '', title = '', amount = 0, created_at = '2023-03-08T11:48:44.490595Z' }) {
+const { confirm } = Modal;
+
+const showConfirm = (onOk = () => { }) => {
+  confirm({
+    title: 'Are you sure delete this transition?',
+    icon: <ExclamationCircleFilled />,
+    content: 'delete this transition',
+    okText: 'Yes',
+    okType: 'danger',
+    cancelText: 'No',
+    onOk,
+    onCancel() {
+      console.log('Cancel');
+    },
+  });
+};
+
+export default function TransitionRow({ id = "", type = '', title = '', amount = 0, created_at = '2023-03-08T11:48:44.490595Z', deleteTransition = () => { } }) {
   const createdAt = moment(created_at)
   let className, icon = ''
   switch (type) {
@@ -15,25 +34,25 @@ export default function TransitionRow({ type = '', title = '', amount = 0, creat
     default:
       return null
   }
+
   return (
     <>
-      <div class={`transaction-list transaction-lis${className}`}>
-        <div class="transaction-list-icon">
-          <i class="material-symbols-outlined">
+      <div className={`transaction-list transaction-lis${className}`}>
+        <div className="transaction-list-icon">
+          <i className="material-symbols-outlined">
             {icon}
           </i>
         </div>
-        <div class="transaction-list-detail">
-          <label class="transaction-name">Transaction Name</label>
-          <label class="transaction-datetime">09 Mar 2023 09:00</label>
-          {createdAt.format('MMMM Do YYYY, h:mm:ss a')}
+        <div className="transaction-list-detail">
+          <label className="transaction-name">{title}</label>
+          <label className="transaction-datetime">{createdAt.format('MMMM Do YYYY, h:mm:ss a')}</label>
         </div>
-        <div class="transaction-list-amount">
+        <div className="transaction-list-amount">
           + {amount}
         </div>
-        <div class="transaction-list-action">
-          <button class="btn">
-            <i class="material-symbols-outlined">
+        <div className="transaction-list-action">
+          <button className="btn" onClick={() => showConfirm(() => deleteTransition(id))}>
+            <i className="material-symbols-outlined">
               delete
             </i>
           </button>

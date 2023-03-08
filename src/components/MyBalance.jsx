@@ -1,22 +1,22 @@
 export default function MyBalance({ balance = 0 }) {
-  let className = balance >= 0 ? "--plus" : "--minus";
+  const className = balance >= 0 ? "--plus" : "--minus";
   return (
     <>
-      <section class={`you-balance you-balance${className}`}>
-        <div class="you-balance--icon">
-          <i class="material-symbols-outlined">
+      <section className={`you-balance you-balance${className}`}>
+        <div className="you-balance--icon">
+          <i className="material-symbols-outlined">
             account_balance_wallet
           </i>
         </div>
-        <div class="you-balance-text">
-          <label class="you-balance-text-title">
+        <div className="you-balance-text">
+          <label className="you-balance-text-title">
             Your Balance
           </label>
-          <div class="amount">
-            <div class="amount-number">
-              + 50,000.00
+          <div className="amount">
+            <div className="amount-number">
+              {balance}
             </div>
-            <div class="amount-unit">
+            <div className="amount-unit">
               THB
             </div>
           </div>

@@ -17,15 +17,19 @@ export default function NewTransitionModal({ loading = false, onFinish = () => {
   const onReset = () => {
     form.resetFields();
   };
+
+  const handleOnFinish = (values) => {
+    onFinish(values) && handleCancel()
+  }
   return (
     <>
-      <button class="btn" onClick={showModal}>New Transaction</button>
+      <button className="btn" onClick={showModal}>New Transaction</button>
       <Modal open={isModalOpen} onOk={handleOk} onCancel={handleCancel} footer={null} maskClosable={false} closable={false}>
-        <div class="modal-title">Add New Transaction</div>
+        <div className="modal-title">Add New Transaction</div>
         <Form
           form={form}
           labelWrap
-          onFinish={onFinish}>
+          onFinish={handleOnFinish}>
           <Form.Item
             label="Transaction Name"
             name="title"
@@ -50,18 +54,18 @@ export default function NewTransitionModal({ loading = false, onFinish = () => {
             <InputNumber />
           </Form.Item>
           <Form.Item>
-            <section class="modal-action">
+            <section className="modal-action">
               <button
                 onClick={handleCancel}
-                loading={loading}
-                class="btn"
-                htmlType="button">
+                disabled={loading}
+                className="btn"
+                type="button">
                 Cancel
               </button>
               <button
-                loading={loading}
-                class="btn btn--primary"
-                htmlType="submit">
+                disabled={loading}
+                className="btn btn--primary"
+                type="submit">
                 Add
               </button>
             </section>
