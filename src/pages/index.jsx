@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useEffect, useCallback, useState } from "react"
+import { useEffect, useCallback, useState, useMemo } from "react"
 import { message, List, Divider, Skeleton } from "antd"
 import Router from "next/router"
 import InfiniteScroll from 'react-infinite-scroll-component';
@@ -16,6 +16,13 @@ import { signOut } from '@/slices/userSlice'
 export default function Home() {
   const [messageApi, contextHolder] = message.useMessage();
   const token = useSelector((state) => state.user.token)
+  const axiosConfig = useMemo(() => {
+    return {
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }
+    }
+  }, [token])
   const dispatch = useDispatch()
 
   const success = () => {
@@ -35,7 +42,7 @@ export default function Home() {
   ////////////////////////////////
   const [balances, setBalances] = useState({})
   const handleGetBalances = useCallback(() => {
-    axios.get(`${process.env.API_URL}/dashboards/balances`)
+    axios.get(`${process.env.API_URL}/dashboards/balances`, axiosConfig)
       .then(function (response) {
         setBalances(response.data)
       })
@@ -58,7 +65,7 @@ export default function Home() {
     // 
     const pageParm = pageNumber + 1
     setPage(pageParm)
-    axios.get(`${process.env.API_URL}/transactions?limit=5&page=${pageParm}`)
+    axios.get(`${process.env.API_URL}/transactions?limit=5&page=${pageParm}`, axiosConfig)
       .then(function (response) {
         setTransactions(transactions.concat(response.data["transactions"]));
         setTransactionsLoading(false);
@@ -71,7 +78,7 @@ export default function Home() {
   }
   ////////////////////////////////
   const handleDeleteTransition = (id) => {
-    axios.delete(`${process.env.API_URL}/transactions/${id}`)
+    axios.delete(`${process.env.API_URL}/transactions/${id}`, axiosConfig)
       .then(function (response) {
         success()
         handleReCallData()
@@ -92,7 +99,7 @@ export default function Home() {
   const [createLoading, setCreateLoading] = useState(false)
   const handleCreateTransaction = (values) => {
     setCreateLoading(true)
-    return axios.post(`${process.env.API_URL}/transactions`, values)
+    return axios.post(`${process.env.API_URL}/transactions`, values, axiosConfig)
       .then(function (response) {
         setCreateLoading(false)
         success()
