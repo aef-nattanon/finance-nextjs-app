@@ -1,20 +1,13 @@
-/* eslint-disable @next/next/no-page-custom-font */
-/* eslint-disable @next/next/google-font-display */
-import Head from 'next/head'
+import AppHerder from "@/components/AppHerder"
+import BalanceCard from "@/components/BalanceCard"
+import MyBalance from "@/components/MyBalance"
+import NewTransitionModal from "@/components/NewTransitionModal"
+import TransitionRow from "@/components/TransitionRow"
 
 export default function Home() {
   return (
     <>
-      <Head>
-        <meta charset='utf-8' />
-        <meta http-equiv='X-UA-Compatible' content='IE=edge' />
-        <meta name='viewport' content='width=device-width, initial-scale=1' />
-        <title>dashboard</title>
-        <link
-          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,700,0,0"
-          rel="stylesheet"
-        />
-      </Head>
+      <AppHerder title="Hom" />
       <div class="app-content">
         <header class="dashboard-header">
           <div class="user-sign-in">
@@ -29,70 +22,10 @@ export default function Home() {
           </div>
         </header>
         <div class="dashboard-content">
-          <section class="you-balance">
-            <div class="you-balance--icon">
-              <i class="material-symbols-outlined">
-                account_balance_wallet
-              </i>
-            </div>
-            <div class="you-balance-text">
-              <label class="you-balance-text-title">
-                Your Balance
-              </label>
-              <div class="amount">
-                <div class="amount-number">
-                  + 50,000.00
-                </div>
-                <div class="amount-unit">
-                  THB
-                </div>
-              </div>
-            </div>
-          </section>
+          <MyBalance balance="" />
           <section class="income-expenses">
-
-            <div class="balance-card balance-card--income">
-              <div class="balance-card-title">
-                <div class="balance-card-title--icon">
-                  <i class="material-symbols-outlined">
-                    download
-                  </i>
-                </div>
-                <label class="balance-card-title-label">
-                  Income
-                </label>
-              </div>
-              <div class="amount">
-                <div class="amount-number">
-                  + 50,000.00
-                </div>
-                <div class="amount-unit">
-                  THB
-                </div>
-              </div>
-            </div>
-
-            <div class="balance-card balance-card--expenses">
-              <div class="balance-card-title">
-                <div class="balance-card-title--icon">
-                  <i class="material-symbols-outlined">
-                    upload
-                  </i>
-                </div>
-                <label class="balance-card-title-label">
-                  Expenses
-                </label>
-              </div>
-              <div class="amount">
-                <div class="amount-number">
-                  + 50,000.00
-                </div>
-                <div class="amount-unit">
-                  THB
-                </div>
-              </div>
-            </div>
-
+            <BalanceCard type="income" amount={500000} />
+            <BalanceCard type="expend" amount={500000} />
           </section>
           <section class="history-transaction">
             <div class="history-head">
@@ -100,53 +33,12 @@ export default function Home() {
                 History Transaction
               </label>
               <div class="history-head-action">
-                <button class="btn">New Transaction</button>
+                <NewTransitionModal />
               </div>
             </div>
             <div class="history-content">
-              <div class="transaction-list transaction-lis--income">
-                <div class="transaction-list-icon">
-                  <i class="material-symbols-outlined">
-                    download
-                  </i>
-                </div>
-                <div class="transaction-list-detail">
-                  <label class="transaction-name">Transaction Name</label>
-                  <label class="transaction-datetime">09 Mar 2023 09:00</label>
-                </div>
-                <div class="transaction-list-amount">
-                  + 999,999,9.00
-                </div>
-                <div class="transaction-list-action">
-                  <button class="btn">
-                    <i class="material-symbols-outlined">
-                      delete
-                    </i>
-                  </button>
-                </div>
-              </div>
-              <div class="transaction-list transaction-lis--expenses">
-                <div class="transaction-list-icon">
-                  <i class="material-symbols-outlined">
-                    upload
-                  </i>
-                </div>
-                <div class="transaction-list-detail">
-                  <label class="transaction-name">Transaction Name</label>
-                  <label class="transaction-datetime">09 Mar 2023 09:00</label>
-                </div>
-                <div class="transaction-list-amount">
-                  + 999,999,9.00
-                </div>
-                <div class="transaction-list-action">
-                  <button class="btn">
-                    <i class="material-symbols-outlined">
-                      delete
-                    </i>
-                  </button>
-                </div>
-              </div>
-
+              <TransitionRow type="income" amount='5,000.00' created_at="2023-03-08T11:48:44.490595Z" />
+              <TransitionRow type="expend" amount='5,000.00' created_at="2023-03-08T11:48:44.490595Z" />
             </div>
           </section>
         </div>

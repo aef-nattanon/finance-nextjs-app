@@ -934,6 +934,28 @@ video {
   font-size: 1.125rem;
   line-height: 1.75rem;
   font-weight: 500;
+  --tw-text-opacity: 1;
+  color: rgb(75 75 75 / var(--tw-text-opacity));
+}
+
+.you-balance.you-balance--plus .you-balance--icon {
+  --tw-bg-opacity: 1;
+  background-color: rgb(16 185 129 / var(--tw-bg-opacity));
+}
+
+.you-balance.you-balance--minus .you-balance--icon {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 95 95 / var(--tw-bg-opacity));
+}
+
+.you-balance.you-balance--plus .amount {
+  --tw-text-opacity: 1;
+  color: rgb(16 185 129 / var(--tw-text-opacity));
+}
+
+.you-balance.you-balance--minus .amount {
+  --tw-text-opacity: 1;
+  color: rgb(255 95 95 / var(--tw-text-opacity));
 }
 
 /* Balance Card*/
