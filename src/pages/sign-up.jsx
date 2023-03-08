@@ -13,7 +13,6 @@ export default function SignUp() {
       content: 'This is a success message',
     });
   };
-
   const error = (e) => {
     const content = e?.response?.data?.error || 'This is an error message'
     messageApi.open({
@@ -21,7 +20,6 @@ export default function SignUp() {
       content: content,
     });
   };
-
   const handleCreateUser = (values) => {
     return axios.post(`${process.env.API_URL}/users`, values)
       .then(function () {

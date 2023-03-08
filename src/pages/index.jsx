@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useCallback, useState } from "react"
 import { message, List, Divider, Skeleton } from "antd"
+import Router from "next/router"
 import InfiniteScroll from 'react-infinite-scroll-component';
 import axios from "axios"
 import AppHerder from "@/components/AppHerder"
@@ -8,8 +9,15 @@ import BalanceCard from "@/components/BalanceCard"
 import MyBalance from "@/components/MyBalance"
 import NewTransitionModal from "@/components/NewTransitionModal"
 import TransitionRow from "@/components/TransitionRow"
+import Loading from "@/components/Loading"
+import { useSelector, useDispatch } from 'react-redux'
+import { signOut } from '@/slices/userSlice'
+
 export default function Home() {
   const [messageApi, contextHolder] = message.useMessage();
+  const token = useSelector((state) => state.user.token)
+  const dispatch = useDispatch()
+
   const success = () => {
     messageApi.open({
       type: 'success',
@@ -102,6 +110,16 @@ export default function Home() {
     handleReCallData()
   }, [])
 
+  useEffect(() => {
+    if (token == null) {
+      Router.push('/sign-in');
+    }
+  }, [token]);
+
+  if (token == null) {
+
+    return <Loading />
+  }
   return (
     <>
       {contextHolder}
@@ -112,7 +130,7 @@ export default function Home() {
             <label className="welcome-user">Welcome Username</label>
             <label className="date-time">09 Mar 2023 09:00</label>
           </div>
-          <div className="logout">
+          <div className="logout" onClick={() => dispatch(signOut())}>
             <i className="material-symbols-outlined">
               logout
             </i>
