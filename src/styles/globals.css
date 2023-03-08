@@ -1132,7 +1132,6 @@ video {
 .authen-content {
   margin: auto;
   margin-top: 2.5rem;
-  margin-bottom: 2.5rem;
   display: flex;
   width: 100%;
   max-width: 24rem;
@@ -1142,7 +1141,6 @@ video {
   padding-left: 0.75rem;
   padding-right: 0.75rem;
 }
-
 
 .authen-action {
   display: flex;
