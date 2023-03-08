@@ -1,0 +1,168 @@
+/* Button */
+.btn {
+  @apply flex flex-row justify-center cursor-pointer items-center px-2 py-3 gap-[5px] h-10 rounded-md box-border border border-black/10 bg-button text-base;
+}
+
+.btn.btn--primary {
+  @apply bg-success-base text-white;
+}
+
+.btn .icon {}
+
+/* input */
+.input-group{
+  @apply flex flex-col gap-[4px] w-full;
+}
+
+.input-group > Label{
+  @apply text-sm font-medium text-label-mid;
+}
+
+.input-group > input{
+  @apply bg-white border border-black/20 rounded-md box-border h-10 px-2;
+}
+
+/* Radio */
+.radio-group{
+  @apply flex gap-3;
+}
+
+.radio-group label{
+  @apply flex text-base font-normal cursor-pointer;
+}
+
+.radio-group label input{
+  @apply mr-1;
+}
+
+/* Link */
+.link {
+  @apply underline text-label-mid;
+}
+
+/* BalanceCard */
+
+.balance-card {}
+
+/* Amount */
+.amount {
+  @apply flex items-baseline text-label-base;
+}
+
+.amount-number {}
+
+.amount-unit {
+  @apply text-[.8em] ml-1;
+}
+
+/* You Balance */
+.you-balance {
+  @apply flex gap-[10px]
+}
+
+.you-balance--icon {
+  @apply flex justify-center items-center rounded-2xl bg-success-base w-[80px] h-[80px];
+}
+
+.you-balance--icon i{
+  @apply text-[50px] text-white;
+}
+
+.you-balance-text {
+  @apply flex flex-col justify-around text-3xl font-bold;
+}
+
+.you-balance-text-title {
+  @apply text-lg font-medium;
+}
+
+/* Balance Card*/
+.balance-card{
+  @apply flex flex-col p-4 rounded-2xl border border-black/10;
+}
+
+.balance-card-title{
+  @apply flex justify-between font-medium text-lg text-label-mid;
+}
+
+.balance-card-title--icon{
+  @apply text-[34px] leading-none;
+}
+
+.balance-card-title-label{
+  @apply text-label-mid;
+}
+
+.balance-card .amount{
+  @apply font-bold text-2xl ml-auto;
+}
+
+.balance-card.balance-card--income{
+  @apply bg-success-low;
+}
+
+.balance-card.balance-card--expenses{
+  @apply bg-danger-low;
+}
+
+.balance-card.balance-card--income .balance-card-title--icon{
+  @apply text-success-base;
+}
+
+.balance-card.balance-card--expenses .balance-card-title--icon{
+  @apply text-danger-base;
+}
+
+/* Transaction List*/
+.history-transaction{
+  @apply flex flex-col gap-4;
+}
+
+.history-content{
+  @apply flex flex-col gap-2;
+}
+
+.transaction-list{
+  @apply flex gap-[20px] items-center p-[10px] rounded-[10px]  border border-black/10;
+}
+
+.transaction-list-icon{}
+
+.transaction-list-detail{
+  @apply flex flex-col w-1/2;
+}
+
+.transaction-list-detail .transaction-name{
+  @apply text-label-mid;
+}
+.transaction-list-detail .transaction-datetime{
+  @apply text-label-low text-sm;
+}
+
+.transaction-list-amount{
+  @apply flex flex-1 justify-end text-label-mid font-bold;
+}
+
+.transaction-list-action i {
+  @apply text-lg;
+}
+
+.transaction-lis--expenses{
+  @apply text-lg;
+}
+
+.transaction-list.transaction-lis--income{
+  @apply bg-success-low;
+}
+
+.transaction-list.transaction-lis--expenses{
+  @apply bg-danger-low;
+}
+
+.transaction-list.transaction-lis--income .transaction-list-icon{
+  @apply text-success-base;
+}
+
+.transaction-list.transaction-lis--expenses .transaction-list-icon{
+  @apply text-danger-base;
+}
