@@ -7,7 +7,7 @@ import TransitionRow from "@/components/TransitionRow"
 export default function Home() {
   return (
     <>
-      <AppHerder title="Hom" />
+      <AppHerder title="Home" />
       <div class="app-content">
         <header class="dashboard-header">
           <div class="user-sign-in">
