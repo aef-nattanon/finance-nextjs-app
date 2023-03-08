@@ -16,7 +16,7 @@ export default function SignUp() {
             <label class="app-name-label">Create a new account</label>
           </header>
           <UserForm textBtSubmit='Sign Up' >
-            <Link class="link" href="/sign-in">Back to login page</Link>
+            <Link className="link" href="/sign-in">Back to login page</Link>
           </UserForm>
         </div>
       </div>

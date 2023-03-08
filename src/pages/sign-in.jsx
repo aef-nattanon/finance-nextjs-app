@@ -16,7 +16,7 @@ export default function SignIn() {
             <label class="app-name-label">Income & Expenses</label>
           </header>
           <UserForm textBtSubmit='Sign In' >
-            <Link class="link" href="/sign-up">Create a new account</Link>
+            <Link className="link" href="/sign-up">Create a new account</Link>
           </UserForm>
         </div>
       </div>
