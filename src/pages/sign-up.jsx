@@ -21,7 +21,7 @@ export default function SignUp() {
     });
   };
   const handleCreateUser = (values) => {
-    return axios.post(`http://dev.opensource-technology.com:8080/api/v1/users`, values)
+    return axios.post(`${process.env.API_URL}/users`, values)
       .then(function () {
         success()
         return true

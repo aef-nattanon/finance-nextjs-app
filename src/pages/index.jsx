@@ -42,7 +42,7 @@ export default function Home() {
   ////////////////////////////////
   const [balances, setBalances] = useState({})
   const handleGetBalances = useCallback(() => {
-    axios.get(`http://dev.opensource-technology.com:8080/api/v1/dashboards/balances`, axiosConfig)
+    axios.get(`${process.env.API_URL}/dashboards/balances`, axiosConfig)
       .then(function (response) {
         setBalances(response.data)
       })
@@ -65,7 +65,7 @@ export default function Home() {
     // 
     const pageParm = pageNumber + 1
     setPage(pageParm)
-    axios.get(`http://dev.opensource-technology.com:8080/api/v1/transactions?limit=5&page=${pageParm}`, axiosConfig)
+    axios.get(`${process.env.API_URL}/transactions?limit=5&page=${pageParm}`, axiosConfig)
       .then(function (response) {
         setTransactions(transactions.concat(response.data["transactions"]));
         setTransactionsLoading(false);
@@ -78,7 +78,7 @@ export default function Home() {
   }
   ////////////////////////////////
   const handleDeleteTransition = (id) => {
-    axios.delete(`http://dev.opensource-technology.com:8080/api/v1/transactions/${id}`, axiosConfig)
+    axios.delete(`${process.env.API_URL}/transactions/${id}`, axiosConfig)
       .then(function (response) {
         success()
         handleReCallData()
@@ -99,7 +99,7 @@ export default function Home() {
   const [createLoading, setCreateLoading] = useState(false)
   const handleCreateTransaction = (values) => {
     setCreateLoading(true)
-    return axios.post(`http://dev.opensource-technology.com:8080/api/v1/transactions`, values, axiosConfig)
+    return axios.post(`${process.env.API_URL}/transactions`, values, axiosConfig)
       .then(function (response) {
         setCreateLoading(false)
         success()
