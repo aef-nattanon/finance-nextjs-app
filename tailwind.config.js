@@ -3,6 +3,9 @@ module.exports = {
   content: ["./src/**/*.{html,js,jsx,ts,tsx,css}"],
   theme: {
     extend: {
+      screens:{
+        'xs': '490px',
+      },
       colors: {
         'label-base': '#2B2B2B',
         'label-mid': '#4B4B4B',
@@ -13,12 +16,6 @@ module.exports = {
         'danger-low': '#FFEDED',
         'button': '#FAFAFA',
       },
-      // width: {
-      //   'app-content-width': '820px',
-      // },
-      // 'max-width': {
-      //   'app-content-width': '820px',
-      // },
     },
   },
   plugins: [],

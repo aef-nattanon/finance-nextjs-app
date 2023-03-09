@@ -1,0 +1,134 @@
+
+.app-content{
+  @apply w-full m-auto max-w-screen-md px-3 pt-5;
+}
+
+.app-name{
+  @apply flex flex-row items-center gap-[5px];
+}
+
+.app-name-icon{
+  @apply text-success-base text-[50px];
+}
+
+.app-name-label{
+  @apply text-label-mid text-[20px] font-bold;
+}
+
+.authen-content{
+  @apply flex flex-col items-center w-full max-w-sm px-3 gap-10 m-auto mt-10;
+}
+
+.authen-content form{
+  @apply flex flex-col w-full gap-3;
+}
+
+.authen-content form.ant-form .ant-form-item{
+  @apply mb-0;
+}
+
+.authen-content form.ant-form.ant-form-vertical .ant-form-item-label{
+  @apply pb-[2px];
+}
+
+.authen-content form.ant-form.ant-form-vertical .ant-form-item-label > label{
+  @apply h-auto;
+}
+
+.authen-action{
+  @apply flex flex-col items-center gap-[10px] mt-4 w-full;
+}
+
+.authen-action .btn{
+  @apply w-full
+}
+
+.authen-input{
+  @apply flex flex-col w-full gap-5;
+}
+
+.dashboard-header{
+  @apply flex justify-between items-end pb-[30px] mb-[30px] border-b border-black/10 ;
+}
+
+.user-sign-in{
+  @apply flex flex-col;
+}
+
+.welcome-user{
+  @apply flex flex-col text-2xl font-bold text-label-base gap-[10px]
+}
+
+.date-time{
+  @apply text-base text-label-low font-medium
+}
+
+.logout{
+  @apply flex flex-col justify-center items-center gap-[2px] cursor-pointer text-label-mid;
+  @apply hover:text-label-base
+}
+
+.logout i{
+  @apply text-2xl leading-none cursor-pointer;
+}
+
+.logout label{
+  @apply text-sm leading-none cursor-pointer;
+}
+
+.dashboard-content{
+  @apply flex flex-col gap-8 pb-14;
+  @apply xs:pb-8;
+}
+
+.income-expenses{
+  @apply flex flex-col gap-3;
+  @apply xs:flex-row;
+}
+
+.income-expenses .balance-card{
+  @apply flex flex-1
+}
+
+.history-transaction{}
+
+.history-head{
+  @apply flex gap-3 items-center justify-between
+}
+
+.history-head-title{
+  @apply font-bold text-xl text-label-mid;
+}
+
+.history-head-action .btn{
+  @apply fixed left-0 bottom-0 h-16 z-10 w-full rounded-none;
+  @apply xs:relative xs:rounded-md xs:h-10;
+}
+
+.history-content .ant-list-items{
+  @apply flex flex-col gap-2;
+}
+
+.modal{
+  @apply font-semibold text-lg max-w-sm m-auto;
+}
+
+.modal-title{
+  @apply mb-5;
+}
+
+.modal form{
+  @apply flex flex-col gap-8;
+}
+
+.modal-input{
+  @apply flex flex-col gap-3;
+}
+
+.modal-action{
+  @apply flex gap-3;
+}
+
+.modal-action .btn{
+  @apply flex flex-1;
+}

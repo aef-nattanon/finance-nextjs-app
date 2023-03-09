@@ -8,6 +8,7 @@ export default function UserForm({ onFinish = () => { }, children, textBtSubmit 
     <Form
       form={form}
       size="large"
+      layout="vertical"
       onFinish={handleOnFinish}
     >
       <Form.Item
