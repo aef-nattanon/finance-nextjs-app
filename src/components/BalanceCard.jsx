@@ -1,4 +1,4 @@
-export default function BalanceCard({ type = '', amount = 0 }) {
+export default function BalanceCard({ type = "", amount = 0 }) {
   let className, icon = ''
   switch (type) {
     case "income":
@@ -22,7 +22,7 @@ export default function BalanceCard({ type = '', amount = 0 }) {
             </i>
           </div>
           <label className="balance-card-title-label">
-            Income
+            {type.toUpperCase()}
           </label>
         </div>
         <div className="amount">
